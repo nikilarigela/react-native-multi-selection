@@ -124,7 +124,7 @@ the identifier says all
 ```
 0 index of array is Unique key 
 1 index of array is label 
-2 index  of array is image(you can pass only image urls)
+2 index of array is image(you can pass only image urls)
 3 index of array is groupby attribute for generating section list
 ```
 
@@ -170,7 +170,7 @@ It takes an number, default size is 25.
  imageSize=50
 ```
 **buttonStyle**
-It takes of object, which has to have ```backgroundColor``` and ```color````.
+It takes of object, which has to have ```backgroundColor``` and ```color```.
 ```
  buttonStyle={backgroundColor: "green", color:"white"}
 ```
