@@ -1,27 +1,50 @@
-# Project Title
+# react-native-multi-selection
 
-One Paragraph of project description goes here
+A simple multi select component with flatlist and sectionlist.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+To install 
+
+```
+npm install react-native-multi-select
+```
+or
+```
+yarn add react-native-multi-select
+```
+
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+you need to install react native vector icons
 
 ```
-Give examples
+yarn add or npm install react-native-vector-icons
 ```
 
-### Installing
+### Usage
 
 A step by step series of examples that tell you how to get a development env running
 
 Say what the step will be
 
 ```
-Give the example
+import Multiple from "react-native-multi-selection";
+```
+and 
+```
+        <Multiple
+          data={this.state.data}
+          selected={this.state.selected}
+          onChange={selected => this.setState({ selected })}
+          counter={true}
+          identifiers={["id", "name", "picture", "eyeColor"]}
+          searchBarStyle={{ borderColor: "#1A237E" }}
+          checkboxColor="#CE93D8"
+          labelColor="#1A237E"
+          imageSize={50}
+        />
 ```
 
 And repeat
