@@ -118,7 +118,7 @@ export default class App extends Component {
   }
 }
 ```
-## identifier(prop)
+## identifiers(prop)
 the identifier says all 
 
 ```
