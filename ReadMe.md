@@ -95,7 +95,7 @@ const data =  [
 
 export default class App extends Component {
   state = {
-    data: ,
+    data: data,
     selected: []
   };
 
@@ -127,15 +127,29 @@ the identifier says all
 3 index of array is groupby attribute for generating section list
 ```
 
+## props
+
+**selected**
+selected takes an array of unique keys which is mentioned in the 0 index of identifiers array.
 ```
-until finished
+selected = [this.state.selected]
+```
+**onChange**
+onChange takes an callback function and  calls each selection of item in list list, it gives the selected id.
+```
+ onChange={selected => this.setState({ selected })}
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+**counter**
+It takes boolean value it shows the number of item selected.
+```
+Type: 'true' | 'false'
+Default value: false
 
-## Running the tests
+counter={true}
 
-Explain how to run the automated tests for this system
+```
+
 
 ### Break down into end to end tests
 
