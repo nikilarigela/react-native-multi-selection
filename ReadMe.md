@@ -147,8 +147,33 @@ Type: 'true' | 'false'
 Default value: false
 
 counter={true}
-
 ```
+**searchBarStyle**
+onChange takes an object of StyleSheet.
+```
+ searchBarStyle={{ borderColor: "#1A237E" }}
+```
+**checkboxColor**
+It takes an string of color.
+```
+ checkboxColor="#1A237E"
+```
+**labelColor**
+It takes an string of color.
+```
+ labelColor="#1A237E"
+```
+**imageSize**
+It takes an number, default size is 25.
+```
+ imageSize=50
+```
+**buttonStyle**
+It takes of object, which has to have ```backgroundColor``` and ```color````.
+```
+ buttonStyle={backgroundColor: "green", color:"white"}
+```
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
