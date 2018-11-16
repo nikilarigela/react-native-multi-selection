@@ -15,5 +15,9 @@
     "react": "*",
     "react-native": "*",
     "react-native-vector-icons": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nikilarigela/simple-react-mathjax"
   }
 }
