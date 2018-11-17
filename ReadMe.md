@@ -186,8 +186,8 @@ It takes of object, which has to have ```backgroundColor``` and ```color```.
 * **Nikil Arigela** - *Initial work* - [Classpro](https://github.com/nikilarigela)
 * **Geek Vijay** - *Initial work* - [Classpro](https://github.com/geekvijay)source
 
-## Source
-thanks to [Elad Gil](https://github.com/ptelad) 
+## Used Packages
+thanks to [Elad Gil](https://github.com/ptelad) for the IphoneX helper
 
 ## License
 
