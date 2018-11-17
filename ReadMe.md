@@ -2,6 +2,12 @@
 
 A simple multi select component with flatlist and sectionlist.
 
+## FlatList
+![FlatList](https://github.com/nikilarigela/react-native-multi-selection/blob/master/video2gif_20181117_125539.gif?raw=true)
+
+## SectionList
+![SectionList](https://github.com/nikilarigela/react-native-multi-selection/blob/master/video2gif_20181117_124226.gif?raw=true)
+
 ## Getting Started
 
 To install 
