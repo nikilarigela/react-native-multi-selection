@@ -153,7 +153,7 @@ class Multiple extends React.PureComponent {
                 ref={this.state.text}
                 placeholder="Search"
                 onChangeText={text => this.setState({ text })}
-                style={[styles.textInput, { ...searchBarStyle }]}
+                style={{ ...searchBarStyle }}
               />
               {counter && (
                 <Text style={{ color: "grey", marginTop: 4 }}>
