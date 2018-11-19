@@ -1,88 +1,195 @@
-# Project Title
+# react-native-multi-selection
 
-One Paragraph of project description goes here
+A simple multi select component with flatlist and sectionlist.
+
+## FlatList
+![FlatList](https://github.com/nikilarigela/react-native-multi-selection/blob/master/video2gif_20181117_125539.gif?raw=true)
+
+## SectionList
+![SectionList](https://github.com/nikilarigela/react-native-multi-selection/blob/master/video2gif_20181117_124226.gif?raw=true)
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+To install 
+
+```
+npm install react-native-multi-select
+```
+or
+```
+yarn add react-native-multi-select
+```
+
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+you need to install react native vector icons
 
 ```
-Give examples
+yarn add or npm install react-native-vector-icons
 ```
 
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+### Usage
 
 ```
-Give the example
+import React, { Component } from "react";
+import { View } from "react-native";
+import Multiple from "react-native-multi-selection";
+
+const data =  [
+  {
+    id: "5bedc4dde9d981f05ef43d79",
+    index: 0,
+    picture: "http://placehold.it/32x32",
+    age: 35,
+    eyeColor: "brown",
+    name: "Herring Aguirre",
+    gender: "male",
+    company: "STEELFAB",
+    email: "herringaguirre@steelfab.com",
+    phone: "+1 (833) 439-3967"
+  },
+  {
+    id: "5bedc4dd5eaa9e0977f982f8",
+    index: 1,
+    picture: "http://placehold.it/32x32",
+    age: 27,
+    eyeColor: "blue",
+    name: "Kellie Rosa",
+    gender: "female",
+    company: "ENDIPINE",
+    email: "kellierosa@endipine.com",
+    phone: "+1 (898) 598-3093"
+  },
+  {
+    id: "5bedc4dd668554d7d2695c32",
+    index: 2,
+    picture: "http://placehold.it/32x32",
+    age: 34,
+    eyeColor: "blue",
+    name: "Katy Bass",
+    gender: "female",
+    company: "UNIWORLD",
+    email: "katybass@uniworld.com",
+    phone: "+1 (936) 413-2750"
+  },
+  {
+    id: "5bedc4dd630f5e6de96b0cfa",
+    index: 3,
+    picture: "http://placehold.it/32x32",
+    age: 22,
+    eyeColor: "green",
+    name: "Mcintyre Reynolds",
+    gender: "male",
+    company: "ECLIPSENT",
+    email: "mcintyrereynolds@eclipsent.com",
+    phone: "+1 (952) 557-3662"
+  },
+  {
+    id: "5bedc4dd271a3e18bf428da8",
+    index: 4,
+    picture: "http://placehold.it/32x32",
+    age: 24,
+    eyeColor: "brown",
+    name: "Torres Knox",
+    gender: "male",
+    company: "CEDWARD",
+    email: "torresknox@cedward.com",
+    phone: "+1 (863) 447-3305"
+  },
+ ];
+
+export default class App extends Component {
+  state = {
+    data: data,
+    selected: []
+  };
+
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: "center" }}>
+        <Multiple
+          data={this.state.data}
+          selected={this.state.selected}
+          onChange={selected => this.setState({ selected })}
+          counter={true}
+          identifiers={["id", "name", "picture", "eyeColor"]}
+          searchBarStyle={{ borderColor: "#1A237E" }}
+          checkboxColor="#CE93D8"
+          labelColor="#1A237E"
+          imageSize={50}
+        />
+      </View>
+    );
+  }
+}
+```
+## identifiers(prop)
+the identifier says all 
+
+```
+0 index of array is Unique key 
+1 index of array is label 
+2 index of array is image(you can pass only image urls)
+3 index of array is groupby attribute for generating section list
 ```
 
-And repeat
+## props
 
+**selected**
+selected takes an array of unique keys which is mentioned in the 0 index of identifiers array.
 ```
-until finished
+selected={this.state.selected}
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
+**onChange**
+onChange takes an callback function and  calls each selection of item in list list, it gives the selected id.
 ```
-Give an example
+ onChange={selected => this.setState({ selected })}
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
-
+**counter**
+It takes boolean value it shows the number of item selected.
 ```
-Give an example
+Type: 'true' | 'false'
+Default value: false
+
+counter={true}
 ```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+**searchBarStyle**
+onChange takes an object of StyleSheet.
+```
+ searchBarStyle={{ borderColor: "#1A237E" }}
+```
+**checkboxColor**
+It takes an string of color.
+```
+ checkboxColor="#1A237E"
+```
+**labelColor**
+It takes an string of color.
+```
+ labelColor="#1A237E"
+```
+**imageSize**
+It takes an number, default size is 25.
+```
+ imageSize=50
+```
+**buttonStyle**
+It takes of object, which has to have ```backgroundColor``` and ```color```.
+```
+ buttonStyle={backgroundColor: "green", color:"white"}
+```
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Nikil Arigela** - *Initial work* - [Classpro](https://github.com/nikilarigela)
+* **Geek Vijay** - *Initial work* - [Classpro](https://github.com/geekvijay)source
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+## Used Packages
+thanks to [Elad Gil](https://github.com/ptelad) for the IphoneX helper
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+This project is licensed under the MIT License - see the [LICENSE.md](https://opensource.org/licenses/MIT) file for details
 
