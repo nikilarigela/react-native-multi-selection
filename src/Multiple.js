@@ -84,7 +84,8 @@ class Multiple extends React.PureComponent {
       identifiers,
       selectBoxStyle,
       searchBarStyle,
-      buttonStyle
+      buttonStyle,
+      headerText
     } = this.props;
     const [key, label, , title] = identifiers;
 
@@ -146,6 +147,7 @@ class Multiple extends React.PureComponent {
 
         <Modal visible={visible} onRequestClose={this.hideMoadal}>
           <View style={{ marginTop: getStatusBarHeight(), flex: 1 }}>
+            {headerText && <Text style={{ marginLeft: 8 }}>{headerText}</Text>}
             <View style={styles.body}>
               <TextInput
                 ref={this.state.text}
