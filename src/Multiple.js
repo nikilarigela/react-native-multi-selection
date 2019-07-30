@@ -1,18 +1,10 @@
 import React from "react";
-import {
-  Modal,
-  Text,
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  FlatList,
-  TextInput,
-  SectionList
-} from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
-import { getStatusBarHeight } from "./iphoneXhelpers";
 import ListItem from "./ListItem";
 import Chip from "./Chip";
+import styles from "./styles";
+import ListModal from "./Modal";
 
 class Multiple extends React.PureComponent {
   constructor(props) {
@@ -56,7 +48,7 @@ class Multiple extends React.PureComponent {
     );
   };
 
-  keyExtractor = (item, index) => {
+  keyExtractor = item => {
     const [key] = this.props.identifiers;
     return item[key];
   };
@@ -71,7 +63,9 @@ class Multiple extends React.PureComponent {
 
   showModal = () => this.setState({ visible: true });
 
-  hideMoadal = () => this.setState({ visible: false, text: "" });
+  hideModal = () => this.setState({ visible: false, text: "" });
+
+  onChangeText = text => this.setState({ text });
 
   render() {
     let titles;
@@ -80,7 +74,6 @@ class Multiple extends React.PureComponent {
     const {
       data,
       selected,
-      counter,
       identifiers,
       selectBoxStyle,
       searchBarStyle,
@@ -118,8 +111,6 @@ class Multiple extends React.PureComponent {
       */
     }
 
-    const counterText = `${selected.length} of ${data.length}`;
-
     const chips = data
       .filter(item => selected.includes(item[key]))
       .map(item => (
@@ -145,105 +136,25 @@ class Multiple extends React.PureComponent {
 
         <View style={styles.chipContainer}>{chips}</View>
 
-        <Modal visible={visible} onRequestClose={this.hideMoadal}>
-          <View style={{ marginTop: getStatusBarHeight(), flex: 1 }}>
-            {headerText && <Text style={{ marginLeft: 8 }}>{headerText}</Text>}
-            <View style={styles.body}>
-              <TextInput
-                ref={this.state.text}
-                placeholder="Search"
-                onChangeText={text => this.setState({ text })}
-                style={{ ...searchBarStyle }}
-              />
-              {counter && (
-                <Text style={{ color: "grey", marginTop: 4 }}>
-                  {counterText}
-                </Text>
-              )}
-              {title ? (
-                <SectionList
-                  sections={sections}
-                  renderItem={this.renderItem}
-                  renderSectionHeader={this.sectionHeader}
-                  keyExtractor={this.keyExtractor}
-                  ItemSeparatorComponent={this.separator}
-                  stickySectionHeadersEnabled
-                />
-              ) : (
-                <FlatList
-                  data={filteredData}
-                  renderItem={this.renderItem}
-                  keyExtractor={this.keyExtractor}
-                  ItemSeparatorComponent={this.separator}
-                  initialNumToRender={2}
-                />
-              )}
-            </View>
-
-            <TouchableOpacity
-              style={[
-                styles.footer,
-                buttonStyle && { backgroundColor: buttonStyle.backgroundColor }
-              ]}
-              onPress={this.hideMoadal}
-            >
-              <Text style={{ color: buttonStyle && buttonStyle.fontColor }}>
-                Done
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </Modal>
+        <ListModal
+          visible={visible}
+          hideModal={this.hideModal}
+          headerText={headerText}
+          text={text}
+          searchBarStyle={searchBarStyle}
+          onChangeText={this.onChangeText}
+          title={title}
+          sections={sections}
+          filteredData={filteredData}
+          renderItem={this.renderItem}
+          sectionHeader={this.sectionHeader}
+          keyExtractor={this.keyExtractor}
+          separator={this.separator}
+          buttonStyle={buttonStyle}
+        />
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  textInput: {
-    borderColor: "black",
-    borderWidth: 2,
-    borderRadius: 5,
-    padding: 8
-  },
-  body: {
-    flex: 1,
-    margin: 8
-  },
-  footer: {
-    justifyContent: "center",
-    alignItems: "center",
-    height: 50,
-    backgroundColor: "#dddddd"
-  },
-  select: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: 8
-  },
-  main: {
-    backgroundColor: "#ddd",
-    paddingVertical: 8,
-    paddingHorizontal: 4,
-    marginBottom: 4
-  },
-  separator: {
-    borderBottomColor: "#bbb",
-    borderBottomWidth: StyleSheet.hairlineWidth
-  },
-  sectionHeader: {
-    paddingTop: 4,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 4,
-    fontSize: 14,
-    fontWeight: "bold",
-    backgroundColor: "rgba(247,247,247,1.0)"
-  },
-  chipContainer: { flexDirection: "row", flexWrap: "wrap", marginTop: 4 }
-});
 
 export default Multiple;
