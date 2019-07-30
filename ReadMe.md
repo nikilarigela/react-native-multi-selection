@@ -1,6 +1,8 @@
 # react-native-multi-selection
 
-A simple multi select component with flatlist and sectionlist.
+A simple multi select component with flatlist and sectionlist. 
+
+## Note : Work in progress.
 
 ## FlatList
 ![FlatList](https://github.com/nikilarigela/react-native-multi-selection/blob/master/video2gif_20181117_125539.gif?raw=true)
