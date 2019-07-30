@@ -1,13 +1,6 @@
 import React from "react";
-import {
-  Modal,
-  Text,
-  View,
-  TouchableOpacity,
-  FlatList,
-  TextInput,
-  SectionList
-} from "react-native";
+import { Modal, View, FlatList, TextInput, SectionList } from "react-native";
+import Icon from "react-native-vector-icons/MaterialIcons";
 import styles from "./styles";
 
 class ListModal extends React.Component {
@@ -15,9 +8,7 @@ class ListModal extends React.Component {
     const {
       visible,
       hideModal,
-      headerText,
       text,
-      searchBarStyle,
       onChangeText,
       title,
       sections,
@@ -25,19 +16,44 @@ class ListModal extends React.Component {
       renderItem,
       sectionHeader,
       keyExtractor,
-      buttonStyle
+      clearText
     } = this.props;
     return (
       <Modal visible={visible} onRequestClose={hideModal}>
         <View style={{ flex: 1 }}>
-          {headerText && <Text style={{ marginLeft: 8 }}>{headerText}</Text>}
           <View style={styles.body}>
-            <TextInput
-              value={text}
-              placeholder="Search"
-              onChangeText={onChangeText}
-              style={{ ...searchBarStyle }}
-            />
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                borderBottomColor: "#9E9E9E",
+                borderWidth: 1
+              }}
+            >
+              <Icon
+                name="arrow-back"
+                size={24}
+                onPress={hideModal}
+                style={{ paddingHorizontal: 16 }}
+              />
+              <TextInput
+                value={text}
+                placeholder="Search"
+                onChangeText={onChangeText}
+                style={{
+                  paddingHorizontal: 6,
+                  flex: 1
+                }}
+              />
+              {text.length !== 0 && (
+                <Icon
+                  name="clear"
+                  size={24}
+                  onPress={clearText}
+                  style={{ paddingHorizontal: 16 }}
+                />
+              )}
+            </View>
             {title ? (
               <SectionList
                 sections={sections}
@@ -55,18 +71,6 @@ class ListModal extends React.Component {
               />
             )}
           </View>
-
-          <TouchableOpacity
-            style={[
-              styles.footer,
-              buttonStyle && { backgroundColor: buttonStyle.backgroundColor }
-            ]}
-            onPress={hideModal}
-          >
-            <Text style={{ color: buttonStyle && buttonStyle.fontColor }}>
-              Done
-            </Text>
-          </TouchableOpacity>
         </View>
       </Modal>
     );

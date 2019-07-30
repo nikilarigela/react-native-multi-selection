@@ -29,8 +29,8 @@ class Multiple extends React.PureComponent {
   };
 
   renderItem = ({ item }) => {
-    const [key, label, image] = this.props.identifiers;
-    const { checkboxColor, labelColor, imageSize } = this.props;
+    const [key, label] = this.props.identifiers;
+    const { labelColor } = this.props;
 
     const isSelected = this.props.selected.includes(item[key]);
 
@@ -40,10 +40,7 @@ class Multiple extends React.PureComponent {
         value={item[key]}
         label={item[label]}
         isSelected={isSelected}
-        image={item[image]}
-        checkboxColor={checkboxColor}
         labelColor={labelColor}
-        imageSize={imageSize}
       />
     );
   };
@@ -65,6 +62,8 @@ class Multiple extends React.PureComponent {
 
   onChangeText = text => this.setState({ text });
 
+  clearText = () => this.setState({ text: "" });
+
   render() {
     let titles;
     let sections;
@@ -74,11 +73,9 @@ class Multiple extends React.PureComponent {
       selected,
       identifiers,
       selectBoxStyle,
-      searchBarStyle,
-      buttonStyle,
       headerText
     } = this.props;
-    const [key, label, , title] = identifiers;
+    const [key, label, title] = identifiers;
 
     const filteredData = data.filter(
       item => item[label].toLowerCase().indexOf(text.toLowerCase()) > -1
@@ -139,7 +136,6 @@ class Multiple extends React.PureComponent {
           hideModal={this.hideModal}
           headerText={headerText}
           text={text}
-          searchBarStyle={searchBarStyle}
           onChangeText={this.onChangeText}
           title={title}
           sections={sections}
@@ -147,7 +143,7 @@ class Multiple extends React.PureComponent {
           renderItem={this.renderItem}
           sectionHeader={this.sectionHeader}
           keyExtractor={this.keyExtractor}
-          buttonStyle={buttonStyle}
+          clearText={this.clearText}
         />
       </View>
     );
