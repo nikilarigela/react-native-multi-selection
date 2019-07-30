@@ -53,8 +53,6 @@ class Multiple extends React.PureComponent {
     return item[key];
   };
 
-  separator = () => <View style={styles.separator} />;
-
   sectionHeader = ({ section }) => (
     <Text style={styles.sectionHeader}>
       {section.title.charAt(0).toUpperCase() + section.title.slice(1)}
@@ -149,7 +147,6 @@ class Multiple extends React.PureComponent {
           renderItem={this.renderItem}
           sectionHeader={this.sectionHeader}
           keyExtractor={this.keyExtractor}
-          separator={this.separator}
           buttonStyle={buttonStyle}
         />
       </View>

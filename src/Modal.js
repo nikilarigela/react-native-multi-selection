@@ -25,7 +25,6 @@ class ListModal extends React.Component {
       renderItem,
       sectionHeader,
       keyExtractor,
-      separator,
       buttonStyle
     } = this.props;
     return (
@@ -45,7 +44,6 @@ class ListModal extends React.Component {
                 renderItem={renderItem}
                 renderSectionHeader={sectionHeader}
                 keyExtractor={keyExtractor}
-                ItemSeparatorComponent={separator}
                 stickySectionHeadersEnabled
               />
             ) : (
@@ -53,7 +51,6 @@ class ListModal extends React.Component {
                 data={filteredData}
                 renderItem={renderItem}
                 keyExtractor={keyExtractor}
-                ItemSeparatorComponent={separator}
                 initialNumToRender={2}
               />
             )}

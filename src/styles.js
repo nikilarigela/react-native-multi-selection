@@ -10,8 +10,7 @@ const styles = StyleSheet.create({
     padding: 8
   },
   body: {
-    flex: 1,
-    margin: 8
+    flex: 1
   },
   footer: {
     justifyContent: "center",
@@ -36,13 +35,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth
   },
   sectionHeader: {
-    paddingTop: 4,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 4,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
     fontSize: 14,
     fontWeight: "bold",
-    backgroundColor: "rgba(247,247,247,1.0)"
+    color: "#9E9E9E"
   },
   chipContainer: { flexDirection: "row", flexWrap: "wrap", marginTop: 4 }
 });
