@@ -106,13 +106,12 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: "center" }}>
+      <View style={{ flex: 1 }}>
         <Multiple
           data={this.state.data}
           selected={this.state.selected}
           onChange={selected => this.setState({ selected })}
-          identifiers={["id", "name", "picture", "eyeColor"]}
-          labelColor="#1A237E"
+          identifiers={["id", "name", "eyeColor"]}
         />
       </View>
     );
