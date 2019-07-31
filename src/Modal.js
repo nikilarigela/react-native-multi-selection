@@ -27,7 +27,8 @@ class ListModal extends React.Component {
                 flexDirection: "row",
                 alignItems: "center",
                 borderBottomColor: "#9E9E9E",
-                borderWidth: 1
+                borderWidth: 1,
+                paddingVertical: 2
               }}
             >
               <Icon
@@ -60,7 +61,6 @@ class ListModal extends React.Component {
                 renderItem={renderItem}
                 renderSectionHeader={sectionHeader}
                 keyExtractor={keyExtractor}
-                stickySectionHeadersEnabled
               />
             ) : (
               <FlatList

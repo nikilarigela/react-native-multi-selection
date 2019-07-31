@@ -35,11 +35,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth
   },
   sectionHeader: {
-    paddingHorizontal: 12,
+    paddingHorizontal: 16,
     paddingVertical: 8,
     fontSize: 14,
     fontWeight: "bold",
-    color: "#9E9E9E"
+    color: "#757575"
   },
   chipContainer: { flexDirection: "row", flexWrap: "wrap", marginTop: 4 }
 });

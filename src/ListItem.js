@@ -23,11 +23,21 @@ class ListItem extends PureComponent {
             height: ITEM_HEIGHT,
             width: "100%",
             paddingHorizontal: 16,
+            marginHorizontal: 8,
+            marginVertical: 4,
             paddingVertical: ITEM_PADDING_TOP,
             backgroundColor: isSelected ? "rgba(0, 0, 0, 0.14)" : "white"
           }}
         >
-          <Text style={{ fontSize: 18, color: labelColor }}>{label}</Text>
+          <Text
+            style={{
+              fontSize: 18,
+              color: labelColor || "#212121",
+              fontWeight: isSelected ? "bold" : "normal"
+            }}
+          >
+            {label}
+          </Text>
         </View>
       </TouchableOpacity>
     );
