@@ -2,8 +2,6 @@
 
 A simple multi select component with flatlist and sectionlist. 
 
-## Note : Work in progress.
-
 ## List
 ![List](https://github.com/nikilarigela/react-native-multi-selection/blob/master/multiple.gif?raw=true)
 
@@ -124,7 +122,7 @@ the identifier says all
 ```
 0 index of array is Unique key 
 1 index of array is label 
-2 index of array is groupby attribute for generating section list
+2 index of array is groupby key for generating section list
 ```
 
 ## props
