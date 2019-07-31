@@ -4,11 +4,8 @@ A simple multi select component with flatlist and sectionlist.
 
 ## Note : Work in progress.
 
-## FlatList
-![FlatList](https://github.com/nikilarigela/react-native-multi-selection/blob/master/video2gif_20181117_125539.gif?raw=true)
-
-## SectionList
-![SectionList](https://github.com/nikilarigela/react-native-multi-selection/blob/master/video2gif_20181117_124226.gif?raw=true)
+## List
+![List](https://github.com/nikilarigela/react-native-multi-selection/blob/master/multiple.gif?raw=true)
 
 ## Getting Started
 
@@ -114,12 +111,8 @@ export default class App extends Component {
           data={this.state.data}
           selected={this.state.selected}
           onChange={selected => this.setState({ selected })}
-          counter={true}
           identifiers={["id", "name", "picture", "eyeColor"]}
-          searchBarStyle={{ borderColor: "#1A237E" }}
-          checkboxColor="#CE93D8"
           labelColor="#1A237E"
-          imageSize={50}
         />
       </View>
     );
@@ -132,8 +125,7 @@ the identifier says all
 ```
 0 index of array is Unique key 
 1 index of array is label 
-2 index of array is image(you can pass only image urls)
-3 index of array is groupby attribute for generating section list
+2 index of array is groupby attribute for generating section list
 ```
 
 ## props
@@ -148,48 +140,16 @@ onChange takes an callback function and  calls each selection of item in list li
 ```
  onChange={selected => this.setState({ selected })}
 ```
-
-**counter**
-It takes boolean value it shows the number of item selected.
-```
-Type: 'true' | 'false'
-Default value: false
-
-counter={true}
-```
-**searchBarStyle**
-onChange takes an object of StyleSheet.
-```
- searchBarStyle={{ borderColor: "#1A237E" }}
-```
-**checkboxColor**
-It takes an string of color.
-```
- checkboxColor="#1A237E"
-```
 **labelColor**
 It takes an string of color.
 ```
  labelColor="#1A237E"
-```
-**imageSize**
-It takes an number, default size is 25.
-```
- imageSize=50
-```
-**buttonStyle**
-It takes of object, which has to have ```backgroundColor``` and ```color```.
-```
- buttonStyle={backgroundColor: "green", color:"white"}
 ```
 
 ## Authors
 
 * **Nikil Arigela** - *Initial work* - [Classpro](https://github.com/nikilarigela)
 * **Geek Vijay** - *Initial work* - [Classpro](https://github.com/geekvijay)source
-
-## Used Packages
-thanks to [Elad Gil](https://github.com/ptelad) for the IphoneX helper
 
 ## License
 
