@@ -68,13 +68,7 @@ class Multiple extends React.PureComponent {
     let titles;
     let sections;
     const { visible, text } = this.state;
-    const {
-      data,
-      selected,
-      identifiers,
-      selectBoxStyle,
-      headerText
-    } = this.props;
+    const { data, selected, identifiers, selectBoxStyle } = this.props;
     const [key, label, title] = identifiers;
 
     const filteredData = data.filter(
@@ -134,7 +128,6 @@ class Multiple extends React.PureComponent {
         <ListModal
           visible={visible}
           hideModal={this.hideModal}
-          headerText={headerText}
           text={text}
           onChangeText={this.onChangeText}
           title={title}
