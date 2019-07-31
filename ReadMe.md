@@ -135,7 +135,7 @@ selected takes an array of unique keys which is mentioned in the 0 index of iden
 selected={this.state.selected}
 ```
 **onChange**
-onChange takes an callback function and  calls each selection of item in list list, it gives the selected id.
+onChange takes an callback function and calls each selection of item in list list, it returns Array with selected ids.
 ```
  onChange={selected => this.setState({ selected })}
 ```
@@ -147,8 +147,8 @@ It takes an string of color.
 
 ## Authors
 
-* **Nikil Arigela** - *Initial work* - [Classpro](https://github.com/nikilarigela)
-* **Geek Vijay** - *Initial work* - [Classpro](https://github.com/geekvijay)source
+* **Nikil Arigela** - *Admin* - [github](https://github.com/nikilarigela)
+* **Geek Vijay** - *Initial work* - [github](https://github.com/geekvijay)
 
 ## License
 
