@@ -22,10 +22,8 @@ class ListItem extends PureComponent {
             alignItems: "center",
             height: ITEM_HEIGHT,
             width: "100%",
-            paddingHorizontal: 16,
-            marginHorizontal: 8,
-            marginVertical: 4,
-            paddingVertical: ITEM_PADDING_TOP,
+            paddingHorizontal: 24,
+            paddingVertical: ITEM_PADDING_TOP + 4,
             backgroundColor: isSelected ? "rgba(0, 0, 0, 0.14)" : "white"
           }}
         >
